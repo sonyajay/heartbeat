@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="29a1d3cf-4a80-4308-9625-33626f8b8dac">
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<api-gateway:autodiscovery apiId="15697579" doc:name="API Autodiscovery" doc:id="566acb12-fd21-4d5b-8434-f19528195c44" flowRef="heartbeatFlow"/>
+	<flow name="heartbeatFlow" doc:id="ff3521be-77d0-4562-bdd5-cdef7af4c1e8" >
+		<http:listener doc:name="Listener" doc:id="ad0be2de-efa8-41ee-b51a-07f17834b7d4" config-ref="HTTP_Listener_config" path="/v1/heartbeat"/>
+		<set-payload value="I am running" doc:name="Set Payload" doc:id="48c213be-e968-4d64-b429-0a99459601da" />
+	</flow>
+</mule>
