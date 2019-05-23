@@ -32,11 +32,11 @@
 			  <version>3.2.3</version>
 			  <extensions>true</extensions>
 			  <configuration>
-				  <standaloneDeployment>
+<!--  				  <standaloneDeployment>
 			  	    <muleHome>/home/ubuntu/mule-enterprise-standalone-4.2.0</muleHome>
 			        <muleVersion>4.2.0</muleVersion>
-			  	</standaloneDeployment>
-<!--  		        <cloudHubDeployment>
+			  	</standaloneDeployment>  -->
+		        <cloudHubDeployment>
 		            <uri>https://anypoint.mulesoft.com</uri>
 		            <muleVersion>4.2.0</muleVersion>
 		            <username>thejaboomi708</username>
@@ -46,7 +46,7 @@
 		            <properties>
 		                <http.port>8081</http.port>
 		            </properties>
-		        </cloudHubDeployment> -->
+		        </cloudHubDeployment>
     			</configuration>
 			<!--	  <configuration>
 	            <deploymentType>standalone</deploymentType>
