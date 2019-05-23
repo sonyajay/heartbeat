@@ -32,6 +32,19 @@
 			  <version>3.2.3</version>
 			  <extensions>true</extensions>
 			  <configuration>
+		        <cloudHubDeployment>
+		            <uri>https://anypoint.mulesoft.com</uri>
+		            <muleVersion>4.2.0</muleVersion>
+		            <username>thejaboomi708</username>
+		            <password>Theja@10</password>
+		            <applicationName>heartbeat</applicationName>
+		            <environment>Sandbox</environment>
+		            <properties>
+		                <key>value</key>
+		            </properties>
+		        </cloudHubDeployment>
+    			</configuration>
+			<!--	  <configuration>
 	            <deploymentType>standalone</deploymentType>
 	            <muleVersion>4.2.0</muleVersion>
 	            <username>thejaboomi708</username>
@@ -40,7 +53,7 @@
 	            <target>local</target>
 	            <targetType>Server</targetType>
 	            <environment>Sandbox</environment>
-	        </configuration>
+	        </configuration> -->
 	        <executions>
 	            <execution>
 	                <id>deploy</id>
