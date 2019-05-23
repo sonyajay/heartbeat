@@ -21,17 +21,36 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-            </plugin>
+		        <groupId>org.mule.tools.maven</groupId>
+		        <artifactId>mule-app-maven-plugin</artifactId>
+		        <version>1.1</version>
+		        <extensions>true</extensions>
+    			</plugin>
             <plugin>
 			  <groupId>org.mule.tools.maven</groupId>
 			  <artifactId>mule-maven-plugin</artifactId>
 			  <version>3.2.3</version>
 			  <extensions>true</extensions>
-			</plugin>
+			  <configuration>
+	            <deploymentType>standalone</deploymentType>
+	            <muleVersion>4.2.0</muleVersion>
+	            <username>thejaboomi708</username>
+	            <password>Theja@10</password>
+	            <redeploy>true</redeploy>
+	            <target>local</target>
+	            <targetType>Server</targetType>
+	            <environment>Sandbox</environment>
+	        </configuration>
+	        <executions>
+	            <execution>
+	                <id>deploy</id>
+	                <phase>deploy</phase>
+	                <goals>
+	                    <goal>deploy</goal>
+	                </goals>
+	            </execution>
+	        </executions>
+		</plugin>
 		<plugin>
                 <groupId>com.mulesoft.munit.tools</groupId>
                 <artifactId>munit-maven-plugin</artifactId>
