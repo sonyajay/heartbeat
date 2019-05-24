@@ -11,6 +11,6 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 	<api-gateway:autodiscovery apiId="15697579" doc:name="API Autodiscovery" doc:id="566acb12-fd21-4d5b-8434-f19528195c44" flowRef="heartbeatFlow"/>
 	<flow name="heartbeatFlow" doc:id="ff3521be-77d0-4562-bdd5-cdef7af4c1e8" >
 		<http:listener doc:name="Listener" doc:id="ad0be2de-efa8-41ee-b51a-07f17834b7d4" config-ref="HTTP_Listener_config" path="/v1/heartbeat"/>
-		<set-payload value="I am running" doc:name="Set Payload" doc:id="48c213be-e968-4d64-b429-0a99459601da" />
+		<set-payload value="I am running low" doc:name="Set Payload" doc:id="48c213be-e968-4d64-b429-0a99459601da" />
 	</flow>
 </mule>
