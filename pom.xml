@@ -66,7 +66,6 @@
 	            <muleVersion>4.2.0</muleVersion>
 	            <username>thejaboomi708</username>
 	            <password>Mulesoft@1</password>
-	            <redeploy>true</redeploy>
 	            <target>local</target>
 	            <password>Mulesoft@1</password>
 	           <applicationName>heartbeat</applicationName>
