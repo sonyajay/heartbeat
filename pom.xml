@@ -31,11 +31,12 @@
 			  <artifactId>mule-maven-plugin</artifactId>
 			  <version>3.2.3</version>
 			  <extensions>true</extensions>
-			  <configuration>
+			  
 <!--  				  <standaloneDeployment>
 			  	    <muleHome>/home/ubuntu/mule-enterprise-standalone-4.2.0</muleHome>
 			        <muleVersion>4.2.0</muleVersion>
 			  	</standaloneDeployment>  -->
+		 <!--     <configuration>
 		        <cloudHubDeployment>
 		            <uri>https://anypoint.mulesoft.com</uri>
 		            <muleVersion>4.2.0</muleVersion>
@@ -48,16 +49,17 @@
 		            </properties>
 		        </cloudHubDeployment>
     			</configuration>
-			<!--	  <configuration>
-	            <deploymentType>standalone</deploymentType>
+		    -->
+				  <configuration>
+	            <deploymentType>arm</deploymentType>
 	            <muleVersion>4.2.0</muleVersion>
 	            <username>thejaboomi708</username>
-	            <password>Theja@10</password>
-	            <redeploy>true</redeploy>
-	            <target>local</target>
+	            <password>Mulesoft@1</password>
+	           <applicationName>heartbeat</applicationName>
+	            <target>local-4.2.0</target>
 	            <targetType>Server</targetType>
 	            <environment>Sandbox</environment>
-	        </configuration> -->
+	        </configuration> 
 	        <executions>
 	            <execution>
 	                <id>deploy</id>
