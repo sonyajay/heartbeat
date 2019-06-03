@@ -66,11 +66,9 @@
 	            <muleVersion>4.2.0</muleVersion>
 	            <username>thejaboomi708</username>
 	            <password>Mulesoft@1</password>
-	            <target>local</target>
-	            <password>Mulesoft@1</password>
 	           <applicationName>heartbeat</applicationName>
 	            <target>local-4.2.0</target>
-	            <targetType>Server</targetType>
+	            <targetType>server</targetType>
 	            <environment>Sandbox</environment>
 		  </armDeployment>
 	        </configuration>
