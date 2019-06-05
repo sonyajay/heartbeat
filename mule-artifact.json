@@ -1,3 +1,19 @@
 {
-  "minMuleVersion": "4.2.0"
+  "configs": [
+    "heartbeat.xml"
+  ],
+  "redeploymentEnabled": true,
+  "name": "heartbeat",
+  "minMuleVersion": "4.2.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedResources": []
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
 }
