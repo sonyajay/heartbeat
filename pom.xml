@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.heartbeat.examples</groupId>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>heartbeat-examples</groupId>
 	<artifactId>heartbeat</artifactId>
         <version>1.0.2</version>
 	<name>heartbeat</name>
@@ -17,40 +19,20 @@
     </properties>
 
 	
-<profiles>
-<profile>
-	<id>arm</id>
-	<build>
-		<plugins>
-			<plugin>
-		        <groupId>org.mule.tools.maven</groupId>
-		        <artifactId>mule-app-maven-plugin</artifactId>
-		        <version>1.1</version>
-		        <extensions>true</extensions>
-    			</plugin>
+<build>
+        <testResources>
+            <testResource>
+                <directory>src/test/munit</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+        <plugins>
             <plugin>
-			  <groupId>org.mule.tools.maven</groupId>
-			  <artifactId>mule-maven-plugin</artifactId>
-			  <version>3.2.3</version>
-			  <extensions>true</extensions>
-		
-<!--  				  <standaloneDeployment>
-			  	    <muleHome>/home/ubuntu/mule-enterprise-standalone-4.2.0</muleHome>
-			        <muleVersion>4.2.0</muleVersion>
-			  	</standaloneDeployment>  -->
-		    <!--	  <configuration>
-		        <cloudHubDeployment>
-		            <uri>https://anypoint.mulesoft.com</uri>
-		            <muleVersion>4.2.0</muleVersion>
-		            <username>thejaboomi708</username>
-		            <password>Theja@10</password>
-		            <applicationName>heartbeat1</applicationName>
-		            <environment>Sandbox</environment>
-		            <properties>
-		                <http.port>8081</http.port>
-		            </properties>
-		        </cloudHubDeployment>
-    			 </configuration> -->
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>${mule.maven.plugin.version}</version>
+                <extensions>true</extensions>
+			
 		 <configuration>
 	            <armDeployment>
 	            <muleVersion>4.2.0</muleVersion>
@@ -62,6 +44,7 @@
 	            <environment>Sandbox</environment>
 		  </armDeployment>
 	        </configuration>
+		    
 	        <executions>
 	            <execution>
 	                <id>deploy</id>
@@ -71,30 +54,68 @@
 	                </goals>
 	            </execution>
 	        </executions>
-		</plugin>
-			
+		 </plugin>
+            <plugin>
+                <groupId>com.mulesoft.munit.tools</groupId>
+                <artifactId>munit-maven-plugin</artifactId>
+                <version>${munit.version}</version>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                            <goal>coverage-report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <coverage>
+                        <runCoverage>true</runCoverage>
+                        <formats>
+                            <format>html</format>
+                        </formats>
+                    </coverage>
+				    <runtimeVersion>${app.runtime}</runtimeVersion>
+					<dynamicPorts>
+						<dynamicPort>http.port</dynamicPort>
+					</dynamicPorts>
+                </configuration>
+            </plugin>
         </plugins>
-	</build>
-	</profile>
-	</profiles>
-	
-	<dependencies>
+    </build>
+
+    <dependencies>
         <dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-http-connector</artifactId>
-            <version>1.5.3</version>
+            <version>${http.connector.version}</version>
             <classifier>mule-plugin</classifier>
         </dependency>
+
         <dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-sockets-connector</artifactId>
-            <version>1.1.5</version>
+            <version>${sockets.connector.version}</version>
             <classifier>mule-plugin</classifier>
         </dependency>
+        <dependency>
+            <groupId>com.mulesoft.munit</groupId>
+            <artifactId>munit-runner</artifactId>
+            <version>${munit.version}</version>
+            <classifier>mule-plugin</classifier>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.munit</groupId>
+            <artifactId>munit-tools</artifactId>
+            <version>${munit.version}</version>
+            <classifier>mule-plugin</classifier>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
-	<repositories>
-          <repository>
+    <repositories>
+        <repository>
             <id>anypoint-exchange</id>
             <name>Anypoint Exchange</name>
             <url>https://maven.anypoint.mulesoft.com/api/v1/maven</url>
@@ -107,21 +128,4 @@
             <layout>default</layout>
         </repository>
     </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>mulesoft-releases</id>
-            <name>mulesoft release repository</name>
-            <layout>default</layout>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-	        <id>mule-public</id>
-	        <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
-    		</pluginRepository>
-    </pluginRepositories>
-
-
 </project>
