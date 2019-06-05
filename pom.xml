@@ -5,7 +5,7 @@
 	<groupId>06f6ac4d-d705-4edb-83c9-3a0d9c522426</groupId>
 	<artifactId>heartbeat</artifactId>
        <version>1.0.1</version>
-       <packaging>mule</packaging>
+       <packaging>mule-application</packaging>
 	<name>heartbeat</name>
 
     <properties>
